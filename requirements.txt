@@ -1,0 +1,10 @@
+asgiref==3.8.1
+Django==5.1.7
+django-six==1.0.5
+gunicorn==23.0.0
+packaging==25.0
+pillow==11.2.1
+pycryptodome==3.22.0
+six==1.17.0
+sqlparse==0.5.3
+tzdata==2025.2
