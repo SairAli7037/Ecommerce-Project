@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-pcs5$m^mjsq^eow0gxel8sfxglmysk_(=h0-+30kua1(tsp_6i
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['ecommerce-shopcart.onrender.com',]
 
 
 # Application definition
