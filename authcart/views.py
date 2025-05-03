@@ -24,7 +24,7 @@ def signup(request):
         try:
             if User.objects.get(username=email):
                 # return HttpResponse("email already exist")
-                messages.info(request,"A mail is sent to registered Email. Verify it by clicking.")
+                messages.info(request,"Email is Taken")
                 return render(request,'signup.html')
             
         except Exception as identifiers:
@@ -36,7 +36,7 @@ def signup(request):
         message=render_to_string('activate.html',{
             'user':user,
             # 'domain':'127.0.0.1:8000',
-            'domain':'ecommerce-shopcart.onrender.com',
+            'domain':'127.0.0.1:8000',
             'uid':urlsafe_base64_encode(force_bytes(user.pk)),
             'token':generate_token.make_token(user)
         })
@@ -98,7 +98,7 @@ class RequestResetEmailView(View):
             # current_site=get_current_site(request)
             email_subject='[Reset Your Password]'
             message=render_to_string('reset-user-password.html',{
-                'domain':'ecommerce-shopcart.onrender.com',
+                'domain':'127.0.0.1:8000',
                 'uid':urlsafe_base64_encode(force_bytes(user[0].pk)),
                 'token':PasswordResetTokenGenerator().make_token(user[0])
             })
