@@ -24,7 +24,7 @@ def signup(request):
         try:
             if User.objects.get(username=email):
                 # return HttpResponse("email already exist")
-                messages.info(request,"Email is Taken")
+                messages.info(request,"A mail is sent to registered Email. Verify it by clicking.")
                 return render(request,'signup.html')
             
         except Exception as identifiers:
@@ -35,7 +35,8 @@ def signup(request):
         email_subject="Active Your Account"
         message=render_to_string('activate.html',{
             'user':user,
-            'domain':'127.0.0.1:8000',
+            # 'domain':'127.0.0.1:8000',
+            'domain':'ecommerce-shopcart.onrender.com/auth/activate/',
             'uid':urlsafe_base64_encode(force_bytes(user.pk)),
             'token':generate_token.make_token(user)
         })
