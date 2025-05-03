@@ -98,7 +98,7 @@ class RequestResetEmailView(View):
             # current_site=get_current_site(request)
             email_subject='[Reset Your Password]'
             message=render_to_string('reset-user-password.html',{
-                'domain':'127.0.0.1:8000',
+                'domain':'ecommerce-shopcart.onrender.com/',
                 'uid':urlsafe_base64_encode(force_bytes(user[0].pk)),
                 'token':PasswordResetTokenGenerator().make_token(user[0])
             })
