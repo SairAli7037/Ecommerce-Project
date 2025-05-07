@@ -107,7 +107,10 @@ class RequestResetEmailView(View):
             email_message.send()
 
             messages.info(request,"WE HAVE SENT YOU AN EMAIL WITH INSTRUCTIONS ON HOW TO RESET THE PASSWORD {message} " )
-            return render(request,'request-reset-email.html')
+        else:
+            messages.error(request, "No account found with that email address.")
+
+        return render(request,'request-reset-email.html')
 
 class SetNewPasswordView(View):
     def get(self,request,uidb64,token):
